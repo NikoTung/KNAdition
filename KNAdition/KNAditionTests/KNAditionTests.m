@@ -7,6 +7,8 @@
 //
 
 #import "KNAditionTests.h"
+#import "NSDataAdditions.h"
+#import "NSStringAdditions.h"
 
 @implementation KNAditionTests
 
@@ -24,9 +26,15 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testBase
 {
-    STFail(@"Unit tests are not implemented yet in KNAditionTests");
+    
+    NSString *string = @"Hello ,this is niko.";
+    NSString *baseEncode = [string base64Encode];
+    NSLog(@"baseEncode  %@",baseEncode);
+    NSString *baseDecode = [baseEncode base64Decode];
+    NSLog(@"baseDecode :%@",baseDecode);
+    STAssertTrueNoThrow([baseDecode isEqualToString:string], @"string after decode should be the same as original string");
 }
 
 @end

@@ -10,6 +10,11 @@
 #import "NSDataAdditions.h"
 
 
+/*
+ * requirement: need to import file NSDataAdditions.h 
+ *
+ */
+
 /**
  * Doxygen does not handle categories very well, so please refer to the .m file in general
  * for the documentation that is reflected on api.three20.info.
@@ -81,5 +86,22 @@
 @property (nonatomic, readonly) NSString* md5Hash;
 
 
+/**
+ * encode this string using base64 encode
+ *
+ * @return the base64 encoded string of this string
+ * 
+ * @require :import the NSData>base64Encode
+ */
+- (NSString *)base64Encode;
+
+/**
+ * decode this string using base64 decode
+ *
+ * @return the base64 decoded string of this string
+ *
+ * @require :import the NSData>base64Encode
+ */
+- (NSString *)base64Decode;
 
 @end

@@ -122,5 +122,16 @@
 	return [[self dataUsingEncoding:NSUTF8StringEncoding] md5Hash];
 }
 
+- (NSString *)base64Encode
+{
+    return [[self dataUsingEncoding:NSASCIIStringEncoding] base64Encode];
+}
+
+- (NSString *)base64Decode
+{
+    NSData *data = [[self dataUsingEncoding:NSASCIIStringEncoding] base64Decode];
+    return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+}
+
 
 @end

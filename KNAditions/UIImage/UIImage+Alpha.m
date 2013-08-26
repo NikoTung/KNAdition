@@ -10,6 +10,9 @@
 - (CGImageRef)newBorderMask:(NSUInteger)borderSize size:(CGSize)size;
 @end
 
+
+
+
 @implementation UIImage (Alpha)
 
 // Returns true if the image has an alpha layer
@@ -132,9 +135,54 @@
     return shadowedImage;	
 }
 
+
+- (UIImage *)maskWithColor:(UIColor *)color {
+	return [self maskWithColor:color shadowColor:[UIColor blackColor] shadowOffset:CGSizeZero shadowBlur:0];
+}
+
+- (UIImage *)maskWithColor:(UIColor *)color
+               shadowColor:(UIColor *)shadowColor
+              shadowOffset:(CGSize)shadowOffset
+                shadowBlur:(CGFloat)shadowBlur
+{
+	UIImage *resultImage;
+	CGColorRef cgColor = [color CGColor];
+    CGColorRef cgShadowColor = [shadowColor CGColor];
+	
+	CGRect contextRect;
+	contextRect.origin.x = 0.0f;
+	contextRect.origin.y = 0.0f;
+	contextRect.size = CGSizeMake([self size].width + 10, [self size].height + 10);
+	// Retrieve source image and begin image context
+	CGSize itemImageSize = [self size];
+	CGPoint itemImagePosition;
+	itemImagePosition.x = ceilf((contextRect.size.width - itemImageSize.width) / 2);
+	itemImagePosition.y = ceilf((contextRect.size.height - itemImageSize.height) / 2);
+	UIGraphicsBeginImageContext(contextRect.size);
+	CGContextRef c = UIGraphicsGetCurrentContext();
+	// Setup shadow
+	CGContextSetShadowWithColor(c, shadowOffset, shadowBlur, cgShadowColor);
+	// Setup transparency layer and clip to mask
+	CGContextBeginTransparencyLayer(c, NULL);
+	CGContextScaleCTM(c, 1.0, -1.0);
+	CGContextClipToMask(c, CGRectMake(itemImagePosition.x, -itemImagePosition.y, itemImageSize.width, -itemImageSize.height)
+						, [self CGImage]);
+	// Fill and end the transparency layer
+	CGContextSetFillColorWithColor(c, cgColor);
+	contextRect.size.height = -contextRect.size.height;
+	CGContextFillRect(c, contextRect);
+	CGContextEndTransparencyLayer(c);
+	// Set selected image and end context
+	resultImage = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+	
+	return resultImage;
+}
+
+
+
 #pragma mark -
 #pragma mark Private helper methods
-
 // Creates a mask that makes the outer edges transparent and everything else opaque
 // The size must include the entire mask (opaque part + transparent border)
 // The caller is responsible for releasing the returned reference by calling CGImageRelease
@@ -168,48 +216,6 @@
     return maskImageRef;
 }
 
-- (UIImage *)maskWithColor:(UIColor *)color {
-	return [self maskWithColor:color shadowColor:[UIColor blackColor] shadowOffset:CGSizeZero shadowBlur:0];
-}
-
-- (UIImage *)maskWithColor:(UIColor *)color 
-		   shadowColor:(UIColor *)shadowColor
-		  shadowOffset:(CGSize)shadowOffset
-			shadowBlur:(CGFloat)shadowBlur
-{
-	UIImage *resultImage;
-	CGColorRef cgColor = [color CGColor];
-    CGColorRef cgShadowColor = [shadowColor CGColor];
-	
-	CGRect contextRect;
-	contextRect.origin.x = 0.0f;
-	contextRect.origin.y = 0.0f;
-	contextRect.size = CGSizeMake([self size].width + 10, [self size].height + 10);
-	// Retrieve source image and begin image context
-	CGSize itemImageSize = [self size];
-	CGPoint itemImagePosition; 
-	itemImagePosition.x = ceilf((contextRect.size.width - itemImageSize.width) / 2);
-	itemImagePosition.y = ceilf((contextRect.size.height - itemImageSize.height) / 2);
-	UIGraphicsBeginImageContext(contextRect.size);
-	CGContextRef c = UIGraphicsGetCurrentContext();
-	// Setup shadow
-	CGContextSetShadowWithColor(c, shadowOffset, shadowBlur, cgShadowColor);
-	// Setup transparency layer and clip to mask
-	CGContextBeginTransparencyLayer(c, NULL);
-	CGContextScaleCTM(c, 1.0, -1.0);
-	CGContextClipToMask(c, CGRectMake(itemImagePosition.x, -itemImagePosition.y, itemImageSize.width, -itemImageSize.height)
-						, [self CGImage]);
-	// Fill and end the transparency layer
-	CGContextSetFillColorWithColor(c, cgColor);
-	contextRect.size.height = -contextRect.size.height;
-	CGContextFillRect(c, contextRect);
-	CGContextEndTransparencyLayer(c);
-	// Set selected image and end context
-	resultImage = UIGraphicsGetImageFromCurrentImageContext();
-	UIGraphicsEndImageContext();
-	
-	return resultImage;
-}
 
 
 @end

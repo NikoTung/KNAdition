@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13421A7117CB40AA0087D7AF /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 136D62D217C45E1300C97457 /* SenTestingKit.framework */; };
+		13421A7217CB40AA0087D7AF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 136D62B417C45E1300C97457 /* UIKit.framework */; };
+		13421A7317CB40AA0087D7AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 136D62B617C45E1300C97457 /* Foundation.framework */; };
+		13421A7917CB40AA0087D7AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 13421A7717CB40AA0087D7AF /* InfoPlist.strings */; };
+		13421A7C17CB40AA0087D7AF /* KNAditionLogicTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 13421A7B17CB40AA0087D7AF /* KNAditionLogicTest.m */; };
 		136D62B517C45E1300C97457 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 136D62B417C45E1300C97457 /* UIKit.framework */; };
 		136D62B717C45E1300C97457 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 136D62B617C45E1300C97457 /* Foundation.framework */; };
 		136D62B917C45E1300C97457 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 136D62B817C45E1300C97457 /* CoreGraphics.framework */; };
@@ -46,6 +51,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13421A7017CB40AA0087D7AF /* KNAditionLogicTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KNAditionLogicTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		13421A7617CB40AA0087D7AF /* KNAditionLogicTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KNAditionLogicTest-Info.plist"; sourceTree = "<group>"; };
+		13421A7817CB40AA0087D7AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		13421A7A17CB40AA0087D7AF /* KNAditionLogicTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KNAditionLogicTest.h; sourceTree = "<group>"; };
+		13421A7B17CB40AA0087D7AF /* KNAditionLogicTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KNAditionLogicTest.m; sourceTree = "<group>"; };
+		13421A7D17CB40AA0087D7AF /* KNAditionLogicTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KNAditionLogicTest-Prefix.pch"; sourceTree = "<group>"; };
 		136D62B017C45E1300C97457 /* KNAdition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KNAdition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		136D62B417C45E1300C97457 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		136D62B617C45E1300C97457 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -91,6 +102,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		13421A6C17CB40AA0087D7AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13421A7117CB40AA0087D7AF /* SenTestingKit.framework in Frameworks */,
+				13421A7217CB40AA0087D7AF /* UIKit.framework in Frameworks */,
+				13421A7317CB40AA0087D7AF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		136D62AD17C45E1300C97457 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -114,12 +135,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13421A7417CB40AA0087D7AF /* KNAditionLogicTest */ = {
+			isa = PBXGroup;
+			children = (
+				13421A7A17CB40AA0087D7AF /* KNAditionLogicTest.h */,
+				13421A7B17CB40AA0087D7AF /* KNAditionLogicTest.m */,
+				13421A7517CB40AA0087D7AF /* Supporting Files */,
+			);
+			path = KNAditionLogicTest;
+			sourceTree = "<group>";
+		};
+		13421A7517CB40AA0087D7AF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				13421A7617CB40AA0087D7AF /* KNAditionLogicTest-Info.plist */,
+				13421A7717CB40AA0087D7AF /* InfoPlist.strings */,
+				13421A7D17CB40AA0087D7AF /* KNAditionLogicTest-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		136D62A517C45E1300C97457 = {
 			isa = PBXGroup;
 			children = (
 				136D62E917C45EB100C97457 /* KNAditions */,
 				136D62BA17C45E1300C97457 /* KNAdition */,
 				136D62D817C45E1300C97457 /* KNAditionTests */,
+				13421A7417CB40AA0087D7AF /* KNAditionLogicTest */,
 				136D62B317C45E1300C97457 /* Frameworks */,
 				136D62B117C45E1300C97457 /* Products */,
 			);
@@ -130,6 +172,7 @@
 			children = (
 				136D62B017C45E1300C97457 /* KNAdition.app */,
 				136D62D117C45E1300C97457 /* KNAditionTests.octest */,
+				13421A7017CB40AA0087D7AF /* KNAditionLogicTest.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -286,6 +329,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		13421A6F17CB40AA0087D7AF /* KNAditionLogicTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13421A8017CB40AA0087D7AF /* Build configuration list for PBXNativeTarget "KNAditionLogicTest" */;
+			buildPhases = (
+				13421A6B17CB40AA0087D7AF /* Sources */,
+				13421A6C17CB40AA0087D7AF /* Frameworks */,
+				13421A6D17CB40AA0087D7AF /* Resources */,
+				13421A6E17CB40AA0087D7AF /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KNAditionLogicTest;
+			productName = KNAditionLogicTest;
+			productReference = 13421A7017CB40AA0087D7AF /* KNAditionLogicTest.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		136D62AF17C45E1300C97457 /* KNAdition */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 136D62E317C45E1300C97457 /* Build configuration list for PBXNativeTarget "KNAdition" */;
@@ -345,11 +406,20 @@
 			targets = (
 				136D62AF17C45E1300C97457 /* KNAdition */,
 				136D62D017C45E1300C97457 /* KNAditionTests */,
+				13421A6F17CB40AA0087D7AF /* KNAditionLogicTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		13421A6D17CB40AA0087D7AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13421A7917CB40AA0087D7AF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		136D62AE17C45E1300C97457 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -373,6 +443,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		13421A6E17CB40AA0087D7AF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
 		136D62CF17C45E1300C97457 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -389,6 +472,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		13421A6B17CB40AA0087D7AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13421A7C17CB40AA0087D7AF /* KNAditionLogicTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		136D62AC17C45E1300C97457 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -428,6 +519,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		13421A7717CB40AA0087D7AF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				13421A7817CB40AA0087D7AF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		136D62BD17C45E1300C97457 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -447,6 +546,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		13421A7E17CB40AA0087D7AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KNAditionLogicTest/KNAditionLogicTest-Prefix.pch";
+				INFOPLIST_FILE = "KNAditionLogicTest/KNAditionLogicTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		13421A7F17CB40AA0087D7AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KNAditionLogicTest/KNAditionLogicTest-Prefix.pch";
+				INFOPLIST_FILE = "KNAditionLogicTest/KNAditionLogicTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		136D62E117C45E1300C97457 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -558,6 +687,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		13421A8017CB40AA0087D7AF /* Build configuration list for PBXNativeTarget "KNAditionLogicTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13421A7E17CB40AA0087D7AF /* Debug */,
+				13421A7F17CB40AA0087D7AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		136D62AA17C45E1300C97457 /* Build configuration list for PBXProject "KNAdition" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -574,6 +711,7 @@
 				136D62E517C45E1300C97457 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		136D62E617C45E1300C97457 /* Build configuration list for PBXNativeTarget "KNAditionTests" */ = {
 			isa = XCConfigurationList;
@@ -582,6 +720,7 @@
 				136D62E817C45E1300C97457 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

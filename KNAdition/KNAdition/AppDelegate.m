@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "NSDictionaryAdditions.h"
 #import "UIImage+RoundedCorner.h"
+#import "NSDataAdditions.h"
+#import "NSStringAdditions.h"
 
 @implementation AppDelegate
 
@@ -18,19 +20,7 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor blueColor];
     [self.window makeKeyAndVisible];
-    
-//    NSDictionary *d = [NSDictionary dictionaryWithObject:@"Wed Aug 21 11:26:35 +0800 2013" forKey:@"created_at"];
-//    
-//    time_t time = [d getTimeValueForKey:@"created_at" defaultValue:12345678];
-//    NSLog(@"time %ld",time);
-    
-    UIImage *image = [UIImage imageNamed:@"ios.png"];
-    UIImage *imageP = [image imageWithRadius:50.0 width:image.size.width height:image.size.height];
-    NSLog(@"size:%@  imagep:%@",NSStringFromCGSize(image.size),NSStringFromCGSize(imageP.size));
-    UIImageView *vi = [[UIImageView alloc] initWithImage:imageP];
-    [vi setFrame:CGRectMake(50, 50, imageP.size.width, imageP.size.height)];
-    [self.window addSubview:vi];
-    
+
     return YES;
 }
 

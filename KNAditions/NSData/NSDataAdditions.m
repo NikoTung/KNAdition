@@ -83,8 +83,7 @@ static unsigned char base64DecodeTable[256] =
     
     return  [[NSString alloc] initWithBytes:output length:size encoding:NSASCIIStringEncoding];
 }
-#define BINARY_UNIT_SIZE 3
-#define BASE64_UNIT_SIZE 4
+
 
 
 - (NSData *)base64Decode
@@ -131,69 +130,6 @@ static unsigned char base64DecodeTable[256] =
 
 
 
-void *NewBase64Decode(
-                      const char *inputBuffer,
-                      size_t length,
-                      size_t *outputLength)
-{
-	if (length == -1)
-	{
-		length = strlen(inputBuffer);
-	}
-	
-	size_t outputBufferSize = (length / BASE64_UNIT_SIZE) * BINARY_UNIT_SIZE;
-	unsigned char *outputBuffer = (unsigned char *)malloc(outputBufferSize);
-	
-	size_t i = 0;
-	size_t j = 0;
-	while (i < length)
-	{
-		//
-		// Accumulate 4 valid characters (ignore everything else)
-		//
-		unsigned char accumulated[BASE64_UNIT_SIZE];
-		size_t accumulateIndex = 0;
-		while (i < length)
-		{
-			unsigned char decode = base64DecodeTable[inputBuffer[i++]];
-			if (decode != xx)
-			{
-				accumulated[accumulateIndex] = decode;
-				accumulateIndex++;
-				
-				if (accumulateIndex == BASE64_UNIT_SIZE)
-				{
-					break;
-				}
-			}
-		}
-		
-		//
-		// Store the 6 bits from each of the 4 characters as 3 bytes
-		//
-		outputBuffer[j] = (accumulated[0] << 2) | (accumulated[1] >> 4);
-		outputBuffer[j + 1] = (accumulated[1] << 4) | (accumulated[2] >> 2);
-		outputBuffer[j + 2] = (accumulated[2] << 6) | accumulated[3];
-		j += accumulateIndex - 1;
-	}
-	
-	if (outputLength)
-	{
-		*outputLength = j;
-	}
-	return outputBuffer;
-}
-
-
-+ (NSData *)dataFromBase64String:(NSString *)aString
-{
-	NSData *data = [aString dataUsingEncoding:NSASCIIStringEncoding];
-	size_t outputLength;
-	void *outputBuffer = NewBase64Decode([data bytes], [data length], &outputLength);
-	NSData *result = [NSData dataWithBytes:outputBuffer length:outputLength];
-	free(outputBuffer);
-	return result;
-}
 
 
 @end

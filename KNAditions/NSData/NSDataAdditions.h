@@ -34,6 +34,5 @@
  */
 - (NSData *)base64Decode;
 
-+ (NSData *)dataFromBase64String:(NSString *)aString;
 
 @end

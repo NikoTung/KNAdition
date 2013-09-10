@@ -104,4 +104,23 @@
  */
 - (NSString *)base64Decode;
 
+/**
+ * urlencode the receiver
+ *
+ * @return:return the url urlencoded.
+ *
+ */
+- (NSURL *)encodeToURL;
+
+- (NSString *)urlEncode;
+
+/**
+ * url decode the receiver
+ *
+ * @return : return the string before url encode
+ *
+ */
+- (NSString *)urlDecode;
+
+
 @end

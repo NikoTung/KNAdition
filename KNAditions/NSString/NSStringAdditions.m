@@ -134,4 +134,38 @@
 }
 
 
+- (NSURL *)encodeToURL
+{
+    const char *chars = [self UTF8String];
+    CFStringRef proccessedString = CFStringCreateWithCString(kCFAllocatorDefault, chars, kCFStringEncodingUTF8);
+    CFStringRef urlString =
+    CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, proccessedString, NULL, NULL, kCFStringEncodingUTF8);
+    CFURLRef url = CFURLCreateWithString(kCFAllocatorDefault, urlString, NULL);
+    return (__bridge NSURL *)url;
+}
+
+- (NSString *)urlEncode
+{
+    /*
+    NSURL *url = [self encodeToURL];
+    CFURLRef urlRef = (__bridge CFURLRef)url;
+    CFStringRef string = CFURLGetString(urlRef);
+    return (__bridge NSString *)string;
+    */
+    const char *chars = [self UTF8String];
+    CFStringRef proccessedString = CFStringCreateWithCString(kCFAllocatorDefault, chars, kCFStringEncodingUTF8);
+    CFStringRef urlString =
+    CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, proccessedString, NULL, NULL, kCFStringEncodingUTF8);
+    return (__bridge NSString *)urlString;
+}
+
+- (NSString *)urlDecode
+{
+    const char *chars = [self UTF8String];
+    CFStringRef proccessedString = CFStringCreateWithCString(kCFAllocatorDefault, chars, kCFStringEncodingUTF8);
+    CFStringRef urlString = CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault, proccessedString, CFSTR(""), kCFStringEncodingUTF8);
+    return (__bridge NSString *)urlString;
+}
+
+
 @end

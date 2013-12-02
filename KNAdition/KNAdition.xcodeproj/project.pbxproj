@@ -38,6 +38,7 @@
 		136D631117C45EB100C97457 /* UIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 136D630517C45EB100C97457 /* UIView+Hierarchy.m */; };
 		136D631217C45EB100C97457 /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 136D630717C45EB100C97457 /* UIViewAdditions.m */; };
 		136D631617C49DD100C97457 /* ios.png in Resources */ = {isa = PBXBuildFile; fileRef = 136D631517C49DD100C97457 /* ios.png */; };
+		2348F874184C1C4400D31A58 /* UIImage+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2348F873184C1C4400D31A58 /* UIImage+UIColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,8 @@
 		136D630617C45EB100C97457 /* UIViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewAdditions.h; sourceTree = "<group>"; };
 		136D630717C45EB100C97457 /* UIViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewAdditions.m; sourceTree = "<group>"; };
 		136D631517C49DD100C97457 /* ios.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ios.png; sourceTree = "<group>"; };
+		2348F872184C1C4400D31A58 /* UIImage+UIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+UIColor.h"; sourceTree = "<group>"; };
+		2348F873184C1C4400D31A58 /* UIImage+UIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+UIColor.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,6 +305,8 @@
 				136D62FD17C45EB100C97457 /* UIImage+Resize.m */,
 				136D62FE17C45EB100C97457 /* UIImage+RoundedCorner.h */,
 				136D62FF17C45EB100C97457 /* UIImage+RoundedCorner.m */,
+				2348F872184C1C4400D31A58 /* UIImage+UIColor.h */,
+				2348F873184C1C4400D31A58 /* UIImage+UIColor.m */,
 			);
 			path = UIImage;
 			sourceTree = "<group>";
@@ -497,6 +502,7 @@
 				136D631017C45EB100C97457 /* UITextViewAdditions.m in Sources */,
 				136D631117C45EB100C97457 /* UIView+Hierarchy.m in Sources */,
 				136D631217C45EB100C97457 /* UIViewAdditions.m in Sources */,
+				2348F874184C1C4400D31A58 /* UIImage+UIColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -694,6 +700,7 @@
 				13421A7F17CB40AA0087D7AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		136D62AA17C45E1300C97457 /* Build configuration list for PBXProject "KNAdition" */ = {
 			isa = XCConfigurationList;
